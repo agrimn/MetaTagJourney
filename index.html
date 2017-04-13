@@ -17,9 +17,26 @@
       
       branch.init('key_live_npDe7jIxUbmqM76tImkknjohvFhnz48x');
 
-branch.setBranchViewData({
-    open_app: true
-});
+branch.deepview(
+    {
+        channel: 'facebook',
+        data: {
+            mydata: 'content of my data',
+            foo: 'bar',
+            '$deeplink_path': 'item_id=12345'
+        },
+        feature: 'dashboard',
+        stage: 'new user',
+        tags: [ 'tag1', 'tag2' ],
+    },
+    {
+        make_new_link: true,
+        open_app: true
+    },
+    function(err) {
+        console.log(err || 'no error');
+    }
+);
       
 //branch.deepviewCta();
 </script>
